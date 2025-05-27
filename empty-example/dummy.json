@@ -1,0 +1,24 @@
+{
+    "myflowers":[
+        {    
+            "name":"rose",
+            "red":255,
+            "green":0,
+            "blue":0
+        },
+        {    
+            "name":"sunflower",
+            "red":255,
+            "green":200,
+            "blue":0
+        },
+        {    
+            "name":"lilac",
+            "red":250,
+            "green":200,
+            "blue":255
+        }
+
+    ]
+
+}
