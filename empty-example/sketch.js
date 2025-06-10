@@ -4,6 +4,8 @@
 let lookAroundTimer = 0;
 let lookAroundCount = 0;
 let lookAroundDelay = 600;
+let startBgImg, startButtonImg;
+let startButtonOriginalRatio = 1; // 초기화용 (가로 / 세로)
 
 let scene = 0;
 let girl;
@@ -145,8 +147,10 @@ class PixelGirl {
 }
 
 function preload() {
-  startBgImg = loadImage("img/start_background.png");
-  startButtonImg = loadImage("img/game_start.png");
+	startBgImg = loadImage("img/start_background.png");
+	startButtonImg = loadImage("img/game_start.png", img => {
+	  startButtonOriginalRatio = img.width / img.height;
+	});
   alleyImg = loadImage("img/alley_background.png");
   mansionImg = loadImage("img/mansion_background.png");
   elementaryImg = loadImage("img/elementary_background.png");
@@ -315,17 +319,22 @@ function draw() {
 }
 
 function mousePressed() {
-  if (scene === 0) {
-    const btnW = 200;
-    const btnH = 80;
-    const btnX = width / 2 - btnW / 2;
-    const btnY = height * 0.75;
-
-    if (mouseX > btnX && mouseX < btnX + btnW && mouseY > btnY && mouseY < btnY + btnH) {
-      scene = 1;
-    }
-    return;
-  }
+	if (scene === 0) {
+		const btnW = width * 0.25;
+		const btnH = btnW / startButtonOriginalRatio;
+		const btnX = width / 2 - btnW / 2;
+		const btnY = height * 0.75;
+	
+		if (
+		  mouseX > btnX &&
+		  mouseX < btnX + btnW &&
+		  mouseY > btnY &&
+		  mouseY < btnY + btnH
+		) {
+		  scene = 1;
+		}
+		return;
+	  }
   if (scene >= 1 && scene <= 4) {
     scene++;
     return;
@@ -379,29 +388,30 @@ function mousePressed() {
 // =====================
 
 function handlePrologue() {
-  let texts = [
-    "엄마와 다투고,\n혼자 공원에 앉아 있었다.",
-    "감정이 북받쳐\n목걸이를 잔디밭에 던졌다.",
-    "다시 주우려 손을 댄 순간—",
-    "지이이잉!!\n땅이 흔들리기 시작했다!",
-    "정신을 차려보니,\n낯선 골목에 와 있었다...",
-  ];
-
-  push();
-
-  if (scene === 4) {
-    // 흔들림 효과 적용
-    let shakeX = random(-10, 10);
-    let shakeY = random(-10, 10);
-    translate(shakeX, shakeY);
+	let texts = [
+	  "엄마와 다투고,\n혼자 공원에 앉아 있었다.",
+	  "감정이 북받쳐\n목걸이를 잔디밭에 던졌다.",
+	  "다시 주우려 손을 댄 순간—",
+	  "지이이잉!!\n땅이 흔들리기 시작했다!",
+	  "정신을 차려보니,\n낯선 골목에 와 있었다...",
+	];
+  
+	push();
+  
+	if (scene === 4) {
+	  let shakeX = random(-10, 10);
+	  let shakeY = random(-10, 10);
+	  translate(shakeX, shakeY);
+	}
+  
+	fill(255);
+	textSize(32);
+	textAlign(CENTER, CENTER); // ⭐ 꼭 보장
+	text(texts[scene - 1], width / 2, height / 2); // ⭐ 항상 가운데
+  
+	pop();
   }
-
-  fill(255);
-  textSize(32);
-  text(texts[scene - 1], width / 2, height / 2);
-
-  pop();
-}
+  
 function updateMapLogic() {
   if (currentMap !== lastEnteredMap) {
     lastEnteredMap = currentMap;
@@ -446,7 +456,7 @@ function updateMapLogic() {
 
     // ↑ 학교 내부 (중앙 30%에서만 가능)
     if (
-      girl.pos.y < MARGIN + 100 &&
+      girl.pos.y < MARGIN + 120 &&
       girl.pos.x > width * 0.35 &&
       girl.pos.x < width * 0.65
     ) {
@@ -477,22 +487,21 @@ function updateMapLogic() {
   }
 
   if (currentMap === "schoolInterior") {
-    statusText = "초등학교 내부. ↑ 도서관 / ↓ 초등학교 입구 / → 1학년 1반";
-
-    if (girl.pos.y < MARGIN) {
-      currentMap = "library";
-      girl.pos.y = height - MARGIN;
-    }
-    if (girl.pos.y > height - MARGIN) {
-      currentMap = "schoolEntrance";
-      girl.pos.y = MARGIN;
-    }
-    if (girl.pos.x > width - MARGIN) {
-      currentMap = "class1";
-      girl.pos.x = MARGIN;
-    }
+	statusText = "초등학교 내부. ↑ 도서관 / ↓ 초등학교 입구 / → 1학년 1반";
+  
+	if (girl.pos.y < MARGIN) {
+	  currentMap = "library";
+	  girl.pos.y = height - MARGIN;
+	}
+	if (girl.pos.y > height - MARGIN) {
+	  currentMap = "schoolEntrance";
+	  girl.pos.y = MARGIN + 330; 
+	}
+	if (girl.pos.x > width - MARGIN) {
+	  currentMap = "class1";
+	  girl.pos.x = MARGIN;
+	}
   }
-
   if (currentMap === "class1") {
     statusText = "1학년 1반 교실. ← 초등학교 내부";
     if (girl.pos.x < MARGIN) {
@@ -568,18 +577,44 @@ function drawLetter() {
 }
 
 function drawTitleScreen() {
-  // 배경 이미지 출력
-  image(startBgImg, 0, 0, width, height);
+	background(0); // 검은 배경 (혹시 모를 여백 대비)
+  
+	// 💡 원본 비율 유지하며 화면 채우기
+	const img = startBgImg;
+	const imgAspect = img.width / img.height;
+	const canvasAspect = width / height;
+  
+	let drawW, drawH;
+	if (canvasAspect > imgAspect) {
+	  // 캔버스가 더 넓음 → 높이에 맞추고 가로 잘라냄
+	  drawH = height;
+	  drawW = height * imgAspect;
+	} else {
+	  // 캔버스가 더 세로 → 너비에 맞추고 세로 잘라냄
+	  drawW = width;
+	  drawH = width / imgAspect;
+	}
+  
+	// 중심 기준으로 이미지 배치
+	const offsetX = (width - drawW) / 2;
+	const offsetY = (height - drawH) / 2;
+  
+	image(img, offsetX, offsetY, drawW, drawH);
+  
+	// ⭐ 버튼 비율 유지
+	const btnW = width * 0.25;
+	const btnH = btnW / startButtonOriginalRatio;
+	const btnX = width / 2 - btnW / 2;
+	const btnY = height * 0.75;
+	image(startButtonImg, btnX, btnY, btnW, btnH);
+  }
+  
 
-  // 버튼 이미지 출력
-  const btnW = 200;
-  const btnH = 80;
-  const btnX = width / 2 - btnW / 2;
-  const btnY = height * 0.75;
-
-  image(startButtonImg, btnX, btnY, btnW, btnH);
-}
-
+  function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+  }
+  
+  
 function handleAlleyIntro() {
   if (alleyIntroStep === 0) {
     narrationQueue.push(new Narration("으어... 뭐야! 여기가 어디지?", 2500));
@@ -717,8 +752,6 @@ function handleAlleyIntro() {
     alleyIntroStep++;
   }
 }
-
-// 🎵 인트로 끝난 후 음악 전환
 if (
   alleyIntroStep >= 7 &&
   !activeNarration &&
