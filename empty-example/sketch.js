@@ -6,6 +6,12 @@ let lookAroundCount = 0;
 let lookAroundDelay = 600;
 let startBgImg, startButtonImg;
 let startButtonOriginalRatio = 1; // 초기화용 (가로 / 세로)
+let mansionEntrySpoken = false;
+let mansionInteriorEntrySpoken = false;
+let schoolEntranceEntrySpoken = false;
+let schoolInteriorEntrySpoken = false;
+let class1EntrySpoken = false;
+
 
 let scene = 0;
 let girl;
@@ -83,9 +89,16 @@ class Narration {
   }
 
   update() {
-    if (this.shouldFadeOut && millis() - this.startTime > this.duration) {
-      this.active = false;
-    }
+	const elapsed = millis() - this.startTime;
+  
+	if (this.shouldFadeOut && elapsed > this.duration) {
+	  this.active = false;
+	}
+  
+	if (!this.shouldFadeOut && elapsed > this.duration) {
+	  this.active = false;
+	}
+  
   }
 
   draw() {
@@ -161,6 +174,7 @@ function preload() {
   schoolyardImg = loadImage("img/schoolyard_background.png");
   classroomImg = loadImage("img/classroom_background.png");
   libraryImg = loadImage("img/library_background.png");
+  mansionInteriorImg = loadImage("img/in_the_mansion.png");
 
   // 캐릭터 이미지
   girlFront1 = loadImage("img/girl-frontside.png");
@@ -229,6 +243,10 @@ function draw() {
       case "mansion":
         bg = mansionImg;
         break;
+		case "mansionInterior":
+  bg = mansionInteriorImg;
+  break;
+
       default:
         bg = alleyImg;
     }
@@ -304,11 +322,12 @@ function draw() {
 
   // === 9. 내레이션 큐 실행 ===
   if (activeNarration) {
-    activeNarration.draw(); // 먼저 그려줌 (계속 보여지게)
-
     activeNarration.update();
 
-    // 다음 내레이션으로 바로 이어지게
+    // 그다음 draw (배경 위에 그려지도록)
+    activeNarration.draw();
+
+    // 다음 내레이션으로 이어지기
     if (!activeNarration.active && narrationQueue.length > 0) {
       activeNarration = narrationQueue.shift();
       activeNarration.shouldFadeOut = false;
@@ -319,6 +338,7 @@ function draw() {
     activeNarration = narrationQueue.shift();
     activeNarration.shouldFadeOut = true;
   }
+
 }
 
 function mousePressed() {
@@ -414,150 +434,6 @@ function handlePrologue() {
 
   pop();
 }
-
-function updateMapLogic() {
-  if (currentMap !== lastEnteredMap) {
-    lastEnteredMap = currentMap;
-    mapEntryTime = millis();
-  }
-
-  if (currentMap === "alley") {
-    handleAlleyIntro();
-    statusText = "여긴 낯선 골목이야. ↑ 초등학교 입구 / → 저택 입구";
-
-    if (girl.pos.y < MARGIN - 50) {
-      currentMap = "schoolEntrance";
-      girl.pos.y = height - MARGIN;
-    }
-    if (girl.pos.x > width - MARGIN - 100) {
-      currentMap = "mansion";
-      girl.pos.x = MARGIN;
-    }
-  }
-  // 사다리꼴 내부인지 확인
-  if (!isInsideAlleyTrap(girl.pos.x, girl.pos.y)) {
-    girl.pos = girl.prevPos.copy(); // 이동 무효화
-    if (!activeNarration && narrationQueue.length === 0) {
-      narrationQueue.push(new Narration("그쪽으론 갈 수 없어."));
-    }
-    return;
-  }
-
-  girl.prevPos = girl.pos.copy(); // 위치 갱신
-
-  if (currentMap === "schoolEntrance") {
-    statusText = "초등학교 입구. ↑ 학교 내부 / ↓ 골목 / ← 운동장";
-
-    let blocked = false;
-    const topLimit = height / 2 - 220;
-
-    // ← 운동장 (항상 가능)
-    if (girl.pos.x < MARGIN) {
-      currentMap = "schoolyard";
-      girl.pos.x = width - MARGIN;
-      girl.prevPos = girl.pos.copy();
-      return;
-    }
-
-    // ↓ 골목
-    if (girl.pos.y > height - MARGIN) {
-      currentMap = "alley";
-      girl.pos.y = MARGIN;
-      girl.prevPos = girl.pos.copy();
-      return;
-    }
-
-    // ↑ 학교 내부 (중앙 30%에서만 가능)
-    if (
-      girl.pos.y < MARGIN + 120 &&
-      girl.pos.x > width * 0.35 &&
-      girl.pos.x < width * 0.65
-    ) {
-      currentMap = "schoolInterior";
-      girl.pos.y = height - MARGIN;
-      girl.prevPos = girl.pos.copy();
-      return;
-    }
-
-    // 위쪽으로 가더라도 중앙 아닌 경우는 제한
-    if (
-      girl.pos.y < topLimit &&
-      (girl.pos.x < width * 0.35 || girl.pos.x > width * 0.65)
-    ) {
-      girl.pos.y = topLimit;
-      blocked = true;
-    }
-
-    // 차단 처리
-    if (blocked) {
-      girl.pos = girl.prevPos.copy();
-      if (!activeNarration && narrationQueue.length === 0) {
-        narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
-      }
-    } else {
-      girl.prevPos = girl.pos.copy();
-    }
-  }
-
-  if (currentMap === "schoolInterior") {
-    statusText = "초등학교 내부. ↑ 도서관 / ↓ 초등학교 입구 / → 1학년 1반";
-
-    if (girl.pos.y < MARGIN) {
-      currentMap = "library";
-      girl.pos.y = height - MARGIN;
-    }
-    if (girl.pos.y > height - MARGIN) {
-      currentMap = "schoolEntrance";
-      girl.pos.y = MARGIN + 330;
-    }
-    if (girl.pos.x > width - MARGIN) {
-      currentMap = "class1";
-      girl.pos.x = MARGIN;
-    }
-  }
-  if (currentMap === "class1") {
-    statusText = "1학년 1반 교실. ← 초등학교 내부";
-    if (girl.pos.x < MARGIN) {
-      currentMap = "schoolInterior";
-      girl.pos.x = width - MARGIN;
-    }
-  }
-
-  if (currentMap === "library") {
-    statusText = "도서관. ↓ 초등학교 내부";
-    if (girl.pos.y > height - MARGIN) {
-      currentMap = "schoolInterior";
-      girl.pos.y = MARGIN + 100;
-    }
-  }
-
-  if (currentMap === "schoolyard") {
-    statusText = "운동장. → 초등학교 입구";
-    if (girl.pos.x > width - MARGIN) {
-      currentMap = "schoolEntrance";
-      girl.pos.x = MARGIN;
-    }
-
-    let inCapsuleZone =
-      girl.pos.x > width / 2 - 50 &&
-      girl.pos.x < width / 2 + 50 &&
-      girl.pos.y > height / 2 - 50 &&
-      girl.pos.y < height / 2 + 50;
-
-    if (!timeCapsuleEvent.triggered && inCapsuleZone) {
-      timeCapsuleEvent.tryTrigger(true);
-    }
-  }
-
-  if (currentMap === "mansion") {
-    statusText = "저택 입구. ← 골목으로 돌아가기";
-    if (girl.pos.x < MARGIN) {
-      currentMap = "alley";
-      girl.pos.x = width - MARGIN - 200;
-    }
-  }
-}
-
 function drawMap() {
   fill(100);
   textSize(16);
@@ -794,63 +670,275 @@ function handleAlleyIntro() {
   }
 }
 
+// 사다리꼴 영역 내에 있는지 확인하는 함수
 function isInsideAlleyTrap(x, y) {
-  if (currentMap !== "alley") return true; // 다른 맵에서는 제한 없음
-
-  // 사다리꼴 기준 (비율 기준)
-  const bgW = 158.6875;
-  const bgH = 85.75;
-
-  const trapW = 115.15625;
-  const trapH = 40.8125;
-
-  const topLeft = {
-    x: (bgW - trapW) / 2,
-    y: (bgH - trapH) / 2,
-  };
-
-  const topRight = {
-    x: topLeft.x + trapW,
-    y: topLeft.y,
-  };
-
-  const bottomLeft = {
-    x: 0,
-    y: bgH,
-  };
-
-  const bottomRight = {
-    x: bgW,
-    y: bgH,
-  };
-
-  // 캔버스 기준으로 변환
-  const scaleX = drawW / bgW;
-  const scaleY = drawH / bgH;
-  const offsetX = bgOffsetX;
-  const offsetY = bgOffsetY;
-
-  function scalePoint(p) {
-    return {
-      x: p.x * scaleX + offsetX,
-      y: p.y * scaleY + offsetY,
-    };
+	if (currentMap !== "alley") return true; // 다른 맵에서는 제한 없음
+  
+	// 사다리꼴 배경 이미지 비율 기준
+	const bgW = 158.6875;
+	const bgH = 85.75;
+  
+	const trapW = 115.15625;
+	const trapH = 40.8125;
+  
+	const topLeft = {
+	  x: (bgW - trapW) / 2,
+	  y: (bgH - trapH) / 2,
+	};
+  
+	const topRight = {
+	  x: topLeft.x + trapW,
+	  y: topLeft.y,
+	};
+  
+	const bottomLeft = {
+	  x: 0,
+	  y: bgH,
+	};
+  
+	const bottomRight = {
+	  x: bgW,
+	  y: bgH,
+	};
+  
+	// 캔버스 기준으로 변환
+	const scaleX = drawW / bgW;
+	const scaleY = drawH / bgH;
+	const offsetX = bgOffsetX;
+	const offsetY = bgOffsetY;
+  
+	function scalePoint(p) {
+	  return {
+		x: p.x * scaleX + offsetX,
+		y: p.y * scaleY + offsetY,
+	  };
+	}
+  
+	const A = scalePoint(topLeft);
+	const B = scalePoint(topRight);
+	const C = scalePoint(bottomRight);
+	const D = scalePoint(bottomLeft);
+  
+	return isPointInTrapezoid({ x, y }, A, B, C, D);
   }
-
-  const A = scalePoint(topLeft);
-  const B = scalePoint(topRight);
-  const C = scalePoint(bottomRight);
-  const D = scalePoint(bottomLeft);
-
-  return isPointInTrapezoid({ x, y }, A, B, C, D);
-}
-
+  
 function isPointInTrapezoid(P, A, B, C, D) {
-  function cross(p1, p2, p3) {
-    return (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
+	function cross(p1, p2, p3) {
+	  return (p2.x - p1.x) * (p3.y - p1.y) - (p3.x - p1.x) * (p2.y - p1.y);
+	}
+  
+	return (
+	  cross(A, B, P) * cross(C, D, P) >= 0 && cross(B, C, P) * cross(D, A, P) >= 0
+	);
   }
-
-  return (
-    cross(A, B, P) * cross(C, D, P) >= 0 && cross(B, C, P) * cross(D, A, P) >= 0
-  );
-}
+  
+  function updateMapLogic() {
+	if (currentMap !== lastEnteredMap) {
+	  lastEnteredMap = currentMap;
+	  mapEntryTime = millis();
+	}
+  
+	// 골목 로직
+	if (currentMap === "alley") {
+	  handleAlleyIntro();
+	  statusText = "여긴 낯선 골목이야. ↑ 초등학교 입구 / → 저택 입구";
+  
+	  if (girl.pos.y < MARGIN - 50) {
+		currentMap = "schoolEntrance";
+		girl.pos.y = height - MARGIN;
+	  }
+	  if (girl.pos.x > width - MARGIN - 100) {
+		currentMap = "mansion";
+		girl.pos.x = MARGIN;
+	  }
+	}
+  
+	// 사다리꼴 영역 검사
+	if (!isInsideAlleyTrap(girl.pos.x, girl.pos.y)) {
+	  girl.pos = girl.prevPos.copy();
+	  if (!activeNarration && narrationQueue.length === 0) {
+		narrationQueue.push(new Narration("그쪽으론 갈 수 없어."));
+	  }
+	  return;
+	}
+  
+	girl.prevPos = girl.pos.copy();
+  
+	// 초등학교 입구
+	if (currentMap === "schoolEntrance") {
+	  statusText = "초등학교 입구. ↑ 학교 내부 / ↓ 골목 / ← 운동장";
+  
+	  if (!schoolEntranceEntrySpoken) {
+		queueNarrationChain([
+		  { text: "와 여기 진짜 고풍스러운 학교다 ㅋㅋㅋ", duration: 2000 },
+		  { text: "국민학교라고 적혀있네? 엥...? 국민학교?", duration: 3000 },
+		  { text: "초등학교가 아니라 국민학교라고?!", duration: 3000 },
+		  { text: "왼쪽으로 가면 운동장인가? 위로 가면 입구?", duration: 3000 },
+		]);
+		schoolEntranceEntrySpoken = true;
+	  }
+  
+	  let blocked = false;
+	  const topLimit = height / 2 - 220;
+  
+	  if (girl.pos.x < MARGIN) {
+		currentMap = "schoolyard";
+		girl.pos.x = width - MARGIN;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+	  if (girl.pos.y > height - MARGIN) {
+		currentMap = "alley";
+		girl.pos.y = MARGIN;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+	  if (
+		girl.pos.y < MARGIN + 120 &&
+		girl.pos.x > width * 0.35 &&
+		girl.pos.x < width * 0.65
+	  ) {
+		currentMap = "schoolInterior";
+		girl.pos.y = height - MARGIN;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+  
+	  if (
+		girl.pos.y < topLimit &&
+		(girl.pos.x < width * 0.35 || girl.pos.x > width * 0.65)
+	  ) {
+		girl.pos.y = topLimit;
+		blocked = true;
+	  }
+  
+	  if (blocked) {
+		girl.pos = girl.prevPos.copy();
+		if (!activeNarration && narrationQueue.length === 0) {
+		  narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
+		}
+	  } else {
+		girl.prevPos = girl.pos.copy();
+	  }
+	}
+  
+	if (currentMap === "schoolInterior") {
+	  statusText = "초등학교 내부. ↑ 도서관 / ↓ 초등학교 입구 / → 1학년 1반";
+  
+	  if (!schoolInteriorEntrySpoken) {
+		queueNarrationChain([
+		  { text: "안에도 참 고풍스럽네...", duration: 2000 },
+		  { text: "우리 부모님이 다녔을 법해.", duration: 2000 },
+		  { text: "나 기억을 잃은 사이에 시골에 왔나...?", duration: 2500 },
+		  { text: "둘러보며 정보를 좀 더 찾아봐야겠다.", duration: 2500 },
+		]);
+		schoolInteriorEntrySpoken = true;
+	  }
+  
+	  if (girl.pos.y < MARGIN) {
+		currentMap = "library";
+		girl.pos.y = height - MARGIN;
+	  }
+	  if (girl.pos.y > height - MARGIN) {
+		currentMap = "schoolEntrance";
+		girl.pos.y = MARGIN + 330;
+	  }
+	  if (girl.pos.x > width - MARGIN) {
+		currentMap = "class1";
+		girl.pos.x = MARGIN;
+	  }
+	}
+  
+	if (currentMap === "class1") {
+	  statusText = "1학년 1반 교실. ← 초등학교 내부";
+  
+	  if (!class1EntrySpoken) {
+		queueNarrationChain([
+		  { text: "와 여기 정말 귀엽다.", duration: 2000 },
+		  { text: "한국 지도도 있고 칠판이 초록색이잖아!", duration: 2500 },
+		  { text: "안에 좀 더 둘러볼까?", duration: 2000 },
+		]);
+		class1EntrySpoken = true;
+	  }
+  
+	  if (girl.pos.x < MARGIN) {
+		currentMap = "schoolInterior";
+		girl.pos.x = width - MARGIN;
+	  }
+	}
+  
+	if (currentMap === "library") {
+	  statusText = "도서관. ↓ 초등학교 내부";
+	  if (girl.pos.y > height - MARGIN) {
+		currentMap = "schoolInterior";
+		girl.pos.y = MARGIN + 100;
+	  }
+	}
+  
+	if (currentMap === "schoolyard") {
+	  statusText = "운동장. → 초등학교 입구";
+	  if (girl.pos.x > width - MARGIN) {
+		currentMap = "schoolEntrance";
+		girl.pos.x = MARGIN;
+	  }
+  
+	  let inCapsuleZone =
+		girl.pos.x > width / 2 - 50 &&
+		girl.pos.x < width / 2 + 50 &&
+		girl.pos.y > height / 2 - 50 &&
+		girl.pos.y < height / 2 + 50;
+  
+	  if (!timeCapsuleEvent.triggered && inCapsuleZone) {
+		timeCapsuleEvent.tryTrigger(true);
+	  }
+	}
+  
+	if (currentMap === "mansion") {
+	  statusText = "저택 입구. ↑ 저택 내부 / ← 골목으로 돌아가기";
+	  if (!mansionEntrySpoken) {
+		queueNarrationChain([
+		  { text: "아무도 안계세요?", duration: 2000 },
+		  { text: "흠... 아무도 없나보네. 그나저나 참 정감가는 정원이다.", duration: 3000 },
+		]);
+		mansionEntrySpoken = true;
+	  }
+	  if (girl.pos.x < MARGIN) {
+		currentMap = "alley";
+		girl.pos.x = width - MARGIN - 200;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+	  if (girl.pos.y < MARGIN + 200) {
+		currentMap = "mansionInterior";
+		girl.pos.y = height - MARGIN - 50;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+	}
+  
+	if (currentMap === "mansionInterior") {
+	  statusText = "저택 내부. ↓ 저택 입구";
+  
+	  if (!mansionInteriorEntrySpoken) {
+		queueNarrationChain([
+		  { text: "음... 나도 모르게 여기 들어와버렸네.", duration: 3000 },
+		  { text: "근데 여기 이집 사람 사는 곳 맞아?", duration: 3000 },
+		  { text: "왜 이렇게 더럽지... 설마 폐가?! 아닌데... 흔적이 있긴 한데...", duration: 3500 },
+		]);
+		mansionInteriorEntrySpoken = true;
+	  }
+  
+	  if (girl.pos.y > height - MARGIN) {
+		currentMap = "mansion";
+		girl.pos.y = MARGIN + 300;
+		girl.prevPos = girl.pos.copy();
+		return;
+	  }
+	}
+  }
+  
+  function queueNarrationChain(textArray) {
+	for (let i = 0; i < textArray.length; i++) {
+	  narrationQueue.push(new Narration(textArray[i].text, textArray[i].duration));
+	}
+  }
