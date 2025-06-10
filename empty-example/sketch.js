@@ -38,7 +38,6 @@ let lookAroundPhase = 0; // 0 = 뒤, 1 = 멈춤, 2 = 앞
 let lookAroundDuration = 1500;
 let lookPauseDuration = 1000; // 추가: 멈추는 시간
 
-
 let drawW, drawH, bgOffsetX, bgOffsetY;
 let bgmScared, bgmMemories;
 let currentBgm = null;
@@ -146,6 +145,8 @@ class PixelGirl {
 }
 
 function preload() {
+  startBgImg = loadImage("img/start_background.png");
+  startButtonImg = loadImage("img/game_start.png");
   alleyImg = loadImage("img/alley_background.png");
   mansionImg = loadImage("img/mansion_background.png");
   elementaryImg = loadImage("img/elementary_background.png");
@@ -315,17 +316,16 @@ function draw() {
 
 function mousePressed() {
   if (scene === 0) {
-    if (
-      mouseX > width / 2 - 100 &&
-      mouseX < width / 2 + 100 &&
-      mouseY > height / 2 + 50 &&
-      mouseY < height / 2 + 110
-    ) {
+    const btnW = 200;
+    const btnH = 80;
+    const btnX = width / 2 - btnW / 2;
+    const btnY = height * 0.75;
+
+    if (mouseX > btnX && mouseX < btnX + btnW && mouseY > btnY && mouseY < btnY + btnH) {
       scene = 1;
     }
     return;
   }
-
   if (scene >= 1 && scene <= 4) {
     scene++;
     return;
@@ -568,16 +568,16 @@ function drawLetter() {
 }
 
 function drawTitleScreen() {
-  background(0);
-  fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(80);
-  text("시간 너머의...", width / 2, height / 2 - 100);
-  fill(255);
-  rect(width / 2 - 100, height / 2 + 50, 200, 60, 20);
-  fill(0);
-  textSize(24);
-  text("Game Start", width / 2, height / 2 + 80);
+  // 배경 이미지 출력
+  image(startBgImg, 0, 0, width, height);
+
+  // 버튼 이미지 출력
+  const btnW = 200;
+  const btnH = 80;
+  const btnX = width / 2 - btnW / 2;
+  const btnY = height * 0.75;
+
+  image(startButtonImg, btnX, btnY, btnW, btnH);
 }
 
 function handleAlleyIntro() {
@@ -662,44 +662,42 @@ function handleAlleyIntro() {
     }
   }
 
-  // 두리번 연출 
-else if (alleyIntroStep === 8) {
-  if (!lookingAround) {
-    lookingAround = true;
-    lookAroundStartTime = millis();
-    lookAroundPhase = 0;
-  }
-
-  const elapsed = millis() - lookAroundStartTime;
-
-  if (lookAroundPhase === 0) {
-    girl.direction = "back";
-    girl.frameToggle = false;
-
-    if (elapsed > lookAroundDuration) {
-      lookAroundPhase = 1;
+  // 두리번 연출
+  else if (alleyIntroStep === 8) {
+    if (!lookingAround) {
+      lookingAround = true;
       lookAroundStartTime = millis();
+      lookAroundPhase = 0;
     }
-  } else if (lookAroundPhase === 1) {
-    // 뒤를 본 후 멈추는 시간 (여기서 아무것도 안 바뀌게)
-    if (elapsed > lookPauseDuration) {
-      lookAroundPhase = 2;
-      lookAroundStartTime = millis();
+
+    const elapsed = millis() - lookAroundStartTime;
+
+    if (lookAroundPhase === 0) {
+      girl.direction = "back";
+      girl.frameToggle = false;
+
+      if (elapsed > lookAroundDuration) {
+        lookAroundPhase = 1;
+        lookAroundStartTime = millis();
+      }
+    } else if (lookAroundPhase === 1) {
+      // 뒤를 본 후 멈추는 시간 (여기서 아무것도 안 바뀌게)
+      if (elapsed > lookPauseDuration) {
+        lookAroundPhase = 2;
+        lookAroundStartTime = millis();
+      }
+    } else if (lookAroundPhase === 2) {
+      girl.direction = "front";
+      girl.frameToggle = false;
+
+      if (elapsed > lookAroundDuration) {
+        lookingAround = false;
+        alleyIntroStep++;
+        narrationQueue.push(
+          new Narration("뭐야... 그런데 이 거리, 은근히 예쁜데?", 2500)
+        );
+      }
     }
-  } else if (lookAroundPhase === 2) {
-    girl.direction = "front";
-    girl.frameToggle = false;
-
-    if (elapsed > lookAroundDuration) {
-      lookingAround = false;
-      alleyIntroStep++;
-      narrationQueue.push(
-        new Narration("뭐야... 그런데 이 거리, 은근히 예쁜데?", 2500)
-      );
-    }
-  }
-
-
   } else if (
     alleyIntroStep === 9 &&
     !activeNarration &&
