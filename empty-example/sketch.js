@@ -2302,10 +2302,17 @@ function startMapTransition(newMap, newPos) {
     if (newMap === "mansion2" || newMap === "reality") {
       nextStageButton.visible = false;
       lastStageButton.visible = false;
-      // 현실 맵으로 이동할 때 리스트 버튼 흔들림 멈춤
+      // 현실 맵으로 이동할 때 리스트 관련 요소 모두 숨김
       if (newMap === "reality") {
         listButtonShake.active = false;
+        listModal.visible = false;
+        listButton.visible = false;  // 리스트 버튼 자체를 숨김
       }
+    }
+
+    // 현실 맵으로 이동할 때 캐릭터 위치 설정
+    if (newMap === "reality") {
+      nextPos = { x: 0.2, y: 0.7 };
     }
 
     // shine 상태 초기화 (found 상태는 유지)
