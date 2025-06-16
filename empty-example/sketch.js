@@ -219,31 +219,32 @@ const shineNarrationChains = {
     { text: "이 아이의 기억 조각을 찾는 거, 은근히 재미있네?", duration: 2500 },
   ],
   library: [
-    { text: "책장이 묵직해... 이건 '가족 심리학'? \n옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야.", duration: 2500 },
+    { text: "책장이 묵직해... 이건 '가족 심리학'? 옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야.", duration: 2500 },
     { text: "'동생 돌보기'... '집안의 평화를 위한 책'이라니.", duration: 3000 },
     { text: "이걸... 13살짜리 아이가 읽은 거야? 뭔가 이상해.", duration: 2500 },
   ],
   mansion: [
     { text: "아이의 타임캡슐을 발견했어.", duration: 3000 },
-    { text: "기억 조각을 찾아야 하니까.\n 미안하지만 열어봐야겠다.", duration: 3200 },
+    { text: "기억 조각을 찾아야 하니까... 미안하지만 열어봐야겠다.", duration: 3200 },
     { text: "나의 소망 리스트?", duration: 2500 },
     { text: "가족들과 함께 외식하는 것,", duration: 2800 },
     { text: "아빠와 함께하는 저녁식사", duration: 2800 },
     { text: "단 한 장의 웃는 가족사진.", duration: 2500 },
     { text: "그 소박한 소원이... 이루어지지 못한 채 여기 남아 있어.", duration: 3000 },
-    { text: "이 아이가 간절히 바라는 거,\n 다 지금 내가 누리고 있는 것들이네.", duration: 2800 },
+    { text: "이 아이가 간절히 바라는 거, 다 지금 내가 누리고 있는 것들이네.", duration: 2800 },
   ],
   momsRoom: [
     { text: "바닥에 메모지들이 흩어져 있어.", duration: 2000 },
     { text: '"내가 어른이 되면 동생을 꼭 지켜줄 거야."', duration: 3000 },
-    { text: '"우리 가족은 행복해질 수 있을까? \n엄마 아빠가 다투지 않았으면 좋겠다..."', duration: 3000 },
-    { text: "초등학생의 글씨 같아.\n 서툴긴 한데 참 익숙한 글씨체네. \n이 아이는 행복하지 않은가봐.", duration: 3900 },
+    { text: '"우리 가족은 행복해질 수 있을까? 엄마 아빠가 다투지 않았으면 좋겠다..."', duration: 3000 },
+    { text: "초등학생의 글씨 같아. 서툴긴 한데 참 익숙한 글씨체네. 이 아이는 행복하지 않은가봐.", duration: 3900 },
     { text: "우리 엄마는 항상 밥 챙겨주시는데...", duration: 2500 },
     { text: "갑자기 엄마 밥이 먹고 싶어졌어.", duration: 2500 },
   ],
   inTheMansion2: [
-    { text: "메모 옆에 초음파 사진이 있어. \n이 집에 살던 그 아이가, 커서 임신을 했나봐.", duration: 2500 },
-    { text: "그리고 손글씨로 써진 메모. \n역시 이 손글씨, 너무 익숙해.", duration: 2000 },
+    { text: "여기 앨범이랑 종이가 있네.", duration: 2000 },
+    { text: "앨범 옆에 초음파 사진이 있어. 이 집에 살던 그 아이가, 커서 임신을 했나봐.", duration: 2500 },
+    { text: "그리고 손글씨로 써진 메모... 역시 이 손글씨, 너무 익숙해.", duration: 2000 },
     { text: '"모든 걸 포기해도 괜찮아.\n너는 나보다 더 큰 사랑을 받기를."', duration: 4000 },
     { text: "이건... 누구의 마음일까?", duration: 3000 }
   ],
@@ -251,16 +252,15 @@ const shineNarrationChains = {
     { text: "다양한 것들이 흩어져 있어.", duration: 2500 },
     { text: "대학원 합격 통지서, 미술 공모전 준비물, 유학 브로셔...", duration: 3000 },
     { text: "메모도 있어.", duration: 3000 },
-    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. \n다른 것쯤은 이루지 못해도 괜찮아."', duration: 3000 },
+    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. 다른 것쯤은 이루지 못해도 괜찮아."', duration: 3000 },
     { text: "누군가의 꿈과 현실이 뒤엉킨 공간...", duration: 3000 }
   ],
   momsRoom2: [
-    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? \n정말 예쁘다.", duration: 2000 },
-    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? \n미술용품을 정리한 것 같네.', duration: 3000 },
-    { text: '어? 여기에도 메모가 있어.', duration: 3000 },
+    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? 정말 예쁘다.", duration: 2000 },
+    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? 미술용품을 정리한 것 같네.', duration: 3000 },
     { text: '"아이가 태어나면, 엄청난 사랑을 줄 거야"', duration: 3000 },
     { text: '"생일에는 매번 편지와 함께 멋진 선물을 줘야지. 행복의 꽃말을 가진 메리골드도 줄 거야."', duration: 3000 },
-    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? \n그건 우리 엄마가 항상 나에게 해주는 건데...", duration: 2500 },
+    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? 그건 우리 엄마가 항상 나에게 해주는 건데...", duration: 2500 },
   ],
   reality: [
     { text: "아건 우리 엄마 휴대폰인데, 켜져있네...", duration: 2000 },
@@ -272,7 +272,7 @@ const shineNarrationChains = {
     { text: "꿈을 포기한 여성...", duration: 2500 },
     { text: "눈물 흘린 엄마...", duration: 2500 },
     { text: "이 모든 것이...", duration: 2000 },
-    { text: "같은 한 사람의 이야기였어.", duration: 3000 }
+    { text: "같은 한 사람의 이야기였다는 것을 깨달았다.", duration: 3000 }
   ]
 };
 
@@ -1173,7 +1173,6 @@ function drawMap() {
 }
 
 function drawListButton() {
-  if (!listButton) return;  // 리스트 버튼이 없으면 그리지 않음
   const btnW = width * 0.08;
   const btnH = btnW * (listImg.height / listImg.width);
   const btnX = width - btnW - 32;
@@ -1438,8 +1437,13 @@ function mousePressed() {
     }
 
     // 리스트 버튼 클릭 처리
-    if (listButton && mouseX > listButton.x && mouseX < listButton.x + listButton.w &&
-        mouseY > listButton.y && mouseY < listButton.y + listButton.h) {
+    const btnW = width * 0.08;
+    const btnH = btnW * (listImg.height / listImg.width);
+    const btnX = width - btnW - 32;
+    const btnY = 32;
+
+    if (mouseX > btnX && mouseX < btnX + btnW && 
+        mouseY > btnY && mouseY < btnY + btnH) {
       
       const fragments = currentChapter === 1 ? memoryFragments : chapter2Fragments;
       
@@ -2151,7 +2155,6 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       break;
 
     case "reality":
-      girl.pos.x = width * 0.2;  // 현실 맵에서 캐릭터 위치 고정
       statusText = "현실. 엄마의 흔적이 남아있는 집";
       if (!realityEntrySpoken) {
         queueNarrationChain([
@@ -2177,9 +2180,9 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
         endingStartTime = millis();
       }
 
-      // 바운더리 이동 제한 및 나레이션 (왼쪽 제한 완화)
-      if (girl.pos.x < width * 0.1) {  // 왼쪽 제한을 화면의 10% 지점으로 변경
-        girl.pos.x = width * 0.1;
+      // 바운더리 이동 제한 및 나레이션
+      if (girl.pos.x < MARGIN) {
+        girl.pos.x = MARGIN;
         if (!activeNarration && narrationQueue.length === 0) {
           narrationQueue.push(new Narration("지금은 거실에서 나갈 수 없어."));
         }
@@ -2299,15 +2302,17 @@ function startMapTransition(newMap, newPos) {
     if (newMap === "mansion2" || newMap === "reality") {
       nextStageButton.visible = false;
       lastStageButton.visible = false;
-      // 현실 맵으로 이동할 때 리스트 관련 요소 완전히 제거
+      // 현실 맵으로 이동할 때 리스트 버튼 흔들림 멈춤과 리스트 모달 숨김
       if (newMap === "reality") {
         listButtonShake.active = false;
         listModal.visible = false;
-        listButton = null;  // 리스트 버튼 객체 자체를 제거
       }
     }
 
-    // 현실 맵으로 이동할 때 캐릭터 위치 설정 부분 제거
+    // 현실 맵으로 이동할 때 캐릭터 위치 설정
+    if (newMap === "reality") {
+      nextPos = { x: 0.2, y: 0.7 };
+    }
 
     // shine 상태 초기화 (found 상태는 유지)
     if (shineTriggers[newMap]) {
