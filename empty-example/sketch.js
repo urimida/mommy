@@ -130,7 +130,7 @@ const shineTriggers = {
   schoolyard: {
     triggered: false,
     added: false,
-    title: "어린 아이 답지 않은 다짐",
+    title: "어린 아이 답지 않은 다짐.",
     place: "운동장",
     x: 0.8,
     y: 0.8,
@@ -138,7 +138,7 @@ const shineTriggers = {
   class1: {
     triggered: false,
     added: false,
-    title: "잘하는 것이 많은 아이",
+    title: "잘하는 것이 많은 아이.",
     place: "1학년 1반",
     x: 0.45,
     y: 0.5,
@@ -146,7 +146,7 @@ const shineTriggers = {
   library: {
     triggered: false,
     added: false,
-    title: "나이에 맞지 않는 책을 읽는 아이",
+    title: "나이에 맞지 않는 책을 읽는 아이.",
     place: "도서관",
     x: 0.65,
     y: 0.5,
@@ -154,7 +154,7 @@ const shineTriggers = {
   mansion: {
     triggered: false,
     added: false,
-    title:"한 아이의 소망-나는 이미 가지고 있는 것",
+    title:"한 아이의 소망. 나는 이미 가지고 있는 것. ",
     place: "저택",
     x: 0.86,
     y: 0.7,
@@ -162,7 +162,7 @@ const shineTriggers = {
   momsRoom: {
     triggered: false,
     added: false,
-    title: "어린이 같지 않은 어린애의 방",
+    title: "어린이 같지 않은 어린애의 방.",
     place: "누군가의 방",
     x: 0.5,
     y: 0.6,
@@ -170,7 +170,7 @@ const shineTriggers = {
   inTheMansion2: {
     triggered: false,
     added: false,
-    title: "모든 걸 포기해도 괜찮아",
+    title: "모든 걸 포기해도 괜찮아.",
     place: "저택 내부",
     x: 0.3,
     y: 0.8,
@@ -178,7 +178,7 @@ const shineTriggers = {
   livingRoom: {
     triggered: false,
     added: false,
-    title: "현실과 꿈의 충돌",
+    title: "현실과 꿈의 충돌.",
     place: "거실",
     x: 0.4,
     y: 0.9,
@@ -186,7 +186,7 @@ const shineTriggers = {
   momsRoom2: {
     triggered: false,
     added: false,
-    title: "아이를 위해 꿈을 포기한 아이",
+    title: "아이를 위해 꿈을 포기한 아이.",
     place: "누군가의 방",
     x: 0.5,
     y: 0.8,
@@ -194,9 +194,9 @@ const shineTriggers = {
   reality: {
     triggered: false,
     added: false,
-    title: "현실로의 귀환",
+    title: "돌아온 나와 그 아이의 집.",
     place: "현실",
-    x: 0.6,
+    x: 0.7,
     y: 0.6,
   }
 };
@@ -208,42 +208,42 @@ let mapMinY = 0,
 // 각 장소별 shine 내레이션 체인 수정
 const shineNarrationChains = {
   schoolyard: [
-    { text: "한 명의 아이가 놀았던 흔적이네. 어? 모래성 옆에 글씨가 있어.", duration: 3000 },
+    { text: "한 명의 아이가 놀았던 흔적이네.\n 어? 모래성 옆에 글씨가 있어.", duration: 3000 },
     { text: '"나는 나중에 내 아이가 꼭 매일 웃게 해줄 거야."', duration: 3000 },
     { text: "글씨체가가 왠지 익숙해.", duration: 2000 },
   ],
   class1: [
     { text: "모든 과목에서 A+...? 이 아이, 엄청난 모범생이었다는 건 알겠다.", duration: 2500 },
     { text: "장래희망은 화가라고 적혀있어.", duration: 2000 },
-    { text: "선생님 메모도 있어. '미래가 기대되는 재능과 노력을 가진 학생.'", duration: 3000 },
+    { text: "선생님 메모도 있어. \n'미래가 기대되는 재능과 노력을 가진 학생.'", duration: 3000 },
     { text: "이 아이의 기억 조각을 찾는 거, 은근히 재미있네?", duration: 2500 },
   ],
   library: [
-    { text: "책장이 묵직해... 이건 '가족 심리학'? 옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야.", duration: 2500 },
+    { text: "책장이 묵직해... 이건 '가족 심리학'? \n옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야.", duration: 2500 },
     { text: "'동생 돌보기'... '집안의 평화를 위한 책'이라니.", duration: 3000 },
     { text: "이걸... 13살짜리 아이가 읽은 거야? 뭔가 이상해.", duration: 2500 },
   ],
   mansion: [
     { text: "아이의 타임캡슐을 발견했어.", duration: 3000 },
-    { text: "기억 조각을 찾아야 하니까... 미안하지만 열어봐야겠다.", duration: 3200 },
+    { text: "기억 조각을 찾아야 하니까... \n미안하지만 열어봐야겠다.", duration: 3200 },
     { text: "나의 소망 리스트?", duration: 2500 },
     { text: "가족들과 함께 외식하는 것,", duration: 2800 },
     { text: "아빠와 함께하는 저녁식사", duration: 2800 },
     { text: "단 한 장의 웃는 가족사진.", duration: 2500 },
     { text: "그 소박한 소원이... 이루어지지 못한 채 여기 남아 있어.", duration: 3000 },
-    { text: "이 아이가 간절히 바라는 거, 다 지금 내가 누리고 있는 것들이네.", duration: 2800 },
+    { text: "이 아이가 간절히 바라는 거, \n다 지금 내가 누리고 있는 것들이네.", duration: 2800 },
   ],
   momsRoom: [
     { text: "바닥에 메모지들이 흩어져 있어.", duration: 2000 },
     { text: '"내가 어른이 되면 동생을 꼭 지켜줄 거야."', duration: 3000 },
-    { text: '"우리 가족은 행복해질 수 있을까? 엄마 아빠가 다투지 않았으면 좋겠다..."', duration: 3000 },
+    { text: '"우리 가족은 행복해질 수 있을까? \n엄마 아빠가 다투지 않았으면 좋겠다..."', duration: 3000 },
     { text: "초등학생의 글씨 같아. 서툴긴 한데 참 익숙한 글씨체네. 이 아이는 행복하지 않은가봐.", duration: 3900 },
     { text: "우리 엄마는 항상 밥 챙겨주시는데...", duration: 2500 },
     { text: "갑자기 엄마 밥이 먹고 싶어졌어.", duration: 2500 },
   ],
   inTheMansion2: [
-    { text: "여기 앨범이랑 종이가 있네.", duration: 2000 },
-    { text: "앨범 옆에 초음파 사진이 있어. 이 집에 살던 그 아이가, 커서 임신을 했나봐.", duration: 2500 },
+    { text: "여기 메모가 있네. 그 글씨야.", duration: 3000 },
+    { text: "메모옆에는 초음파 사진이 있어. \n이 집에 살던 그 아이가, 커서 임신을 했나봐.", duration: 2500 },
     { text: "그리고 손글씨로 써진 메모... 역시 이 손글씨, 너무 익숙해.", duration: 2000 },
     { text: '"모든 걸 포기해도 괜찮아.\n너는 나보다 더 큰 사랑을 받기를."', duration: 4000 },
     { text: "이건... 누구의 마음일까?", duration: 3000 }
@@ -252,27 +252,39 @@ const shineNarrationChains = {
     { text: "다양한 것들이 흩어져 있어.", duration: 2500 },
     { text: "대학원 합격 통지서, 미술 공모전 준비물, 유학 브로셔...", duration: 3000 },
     { text: "메모도 있어.", duration: 3000 },
-    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. 다른 것쯤은 이루지 못해도 괜찮아."', duration: 3000 },
+    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. \n다른 것쯤은 이루지 못해도 괜찮아."', duration: 3000 },
     { text: "누군가의 꿈과 현실이 뒤엉킨 공간...", duration: 3000 }
   ],
   momsRoom2: [
-    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? 정말 예쁘다.", duration: 2000 },
-    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? 미술용품을 정리한 것 같네.', duration: 3000 },
+    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? \n정말 예쁘다.", duration: 2000 },
+    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? \n미술용품을 정리한 것 같네.', duration: 3000 },
     { text: '"아이가 태어나면, 엄청난 사랑을 줄 거야"', duration: 3000 },
-    { text: '"생일에는 매번 편지와 함께 멋진 선물을 줘야지. 행복의 꽃말을 가진 메리골드도 줄 거야."', duration: 3000 },
-    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? 그건 우리 엄마가 항상 나에게 해주는 건데...", duration: 2500 },
+    { text: '"생일에는 매번 편지와 함께 멋진 선물을 줘야지. \n행복의 꽃말을 가진 메리골드도 줄 거야."', duration: 3000 },
+    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? \n그건 우리 엄마가 항상 나에게 해주는 건데...", duration: 2500 },
   ],
   reality: [
     { text: "아건 우리 엄마 휴대폰인데, 켜져있네...", duration: 2000 },
     { text: '"엄마는 진짜 인생 망친 사람 같아"', duration: 3000 },
     { text: '"엄마는 내 기분도 모르잖아!"', duration: 3000 },
-    { text: "그 옆에는 젖은 흔적이 있는 일기장이...", duration: 2500 },
+    { text: "이거 내가 엄마한테 보낸 거네...", duration: 2500 },
     { text: "잠깐...", duration: 2000 },
     { text: "어릴 적 동생을 돌본 소녀...", duration: 2500 },
     { text: "꿈을 포기한 여성...", duration: 2500 },
     { text: "눈물 흘린 엄마...", duration: 2500 },
     { text: "이 모든 것이...", duration: 2000 },
-    { text: "같은 한 사람의 이야기였다는 것을 깨달았다.", duration: 3000 }
+    { 
+      text: "같은 한 사람의 이야기였다.", 
+      duration: 3000,
+      onComplete: function() {
+        console.log('마지막 대사 완료로 엔딩 시퀀스 시작');
+        showEndingText = true;
+        showListModal = false;
+        lastStageButton.visible = false;
+        lastStageButton.permanentlyHidden = true;
+        endingPhase = 1;
+        endingStartTime = millis();
+      }
+    }
   ]
 };
 
@@ -338,7 +350,7 @@ class GameEvent {
 }
 
 class Narration {
-  constructor(text, duration = 2000, shouldFadeOut = true, type = "dialogue") {
+  constructor(text, duration = 2000, shouldFadeOut = true, type = "dialogue", onComplete = null) {
     this.text = text;
     this.duration = duration;
     this.shouldFadeOut = shouldFadeOut;
@@ -586,6 +598,7 @@ function preload() {
   momsRoom2Img = loadImage("img/mom's_room2.png");
   myHouseImg = loadImage("img/my_house.png");
   knockSound = loadSound("music/knock.mp3");
+  knockSound.setVolume(1.5); // 노크 소리 볼륨 1.5배로 설정
   lastStageImg = loadImage("img/last_stage_button.png");
   goToHomeImg = loadImage('img/go_to_home.png');
 }
@@ -937,6 +950,14 @@ function updateAndDrawGirl() {
   let baseScale = 0.35;
   let minPerspective = 0.8;
   let maxPerspective = 1.5;
+  
+  // 맨션 맵에서만 크기 변화를 줄임
+  if (currentMap === "mansion" || currentMap === "mansionInterior" || 
+      currentMap === "mansion2" || currentMap === "inTheMansion2") {
+    minPerspective = 0.8;
+    maxPerspective = 1.2;
+  }
+  
   let perspective = lerp(minPerspective, maxPerspective, t);
   let scaleValue = baseScale * perspective;
   if (currentMap === "momsRoom") scaleValue *= 1.3;
@@ -1002,7 +1023,9 @@ function drawNextStageButton() {
 }
 
 function drawLastStageButton() {
-  if (!lastStageButton.visible) return;
+  // 현실 맵이거나 버튼이 영구적으로 숨겨졌거나 visible이 false일 때는 그리지 않음
+  if (currentMap === "reality" || lastStageButton.permanentlyHidden || !lastStageButton.visible) return;
+  
   const btnW = width * 0.15;
   const btnH = btnW * (lastStageImg.height / lastStageImg.width);
   lastStageButton.x = width - btnW - 40;
@@ -1025,19 +1048,31 @@ function drawLastStageButton() {
     lastStageButton.w,
     lastStageButton.h
   );
-  // 버튼 위에 "마지막 스테이지" 텍스트 표시(원하면 주석처리)
-  // fill(0, 180);
-  // noStroke();
-  // textAlign(CENTER, CENTER);
-  // textSize(28);
-  // text("마지막 스테이지", lastStageButton.x + lastStageButton.w/2, lastStageButton.y + lastStageButton.h/2);
   pop();
 }
 
 function handleShineInteraction() {
   if (!shineTriggers[currentMap]) return;
   const trigger = shineTriggers[currentMap];
-  
+
+  // 디버깅을 위한 상태 로깅
+  if (frameCount % 60 === 0) { // 1초마다 로그 출력
+    console.log('Shine State:', {
+      phase: shineState.phase,
+      animating: shineState.animating,
+      found: shineState.found,
+      trigger: {
+        triggered: trigger.triggered,
+        added: trigger.added,
+        narrationComplete: trigger.narrationComplete
+      },
+      currentMap: currentMap
+    });
+  }
+
+  // 이미 트리거된 샤인은 처리하지 않음
+  if (trigger.triggered && trigger.added) return;
+
   // 샤인 충돌 체크 및 나레이션 트리거
   const baseW = width * 0.09;
   const scale = baseW / shineImg.width;
@@ -1052,6 +1087,7 @@ function handleShineInteraction() {
   const charH = imgW * scale * 80;
   const charX = centerX - charW / 2 + 50;
   const charY = centerY - charH / 2 + 50;
+
   const overlap = !(
     charX + charW < shineX ||
     charX > shineX + shineW ||
@@ -1062,8 +1098,10 @@ function handleShineInteraction() {
   // 샤인과 충돌했을 때 처리
   if (overlap && !trigger.triggered && !shineState.found) {
     if (!activeNarration && narrationQueue.length === 0) {
+      console.log('Shine triggered - starting collect phase for map:', currentMap);
       queueNarrationChain(shineNarrationChains[currentMap]);
       trigger.triggered = true;
+      trigger.narrationComplete = false;
       shineState.phase = "collect";
       shineState.x = shineX;
       shineState.y = shineY;
@@ -1071,6 +1109,43 @@ function handleShineInteraction() {
       shineState.h = shineH;
       shineState.collectStartTime = millis();
       shineState.animating = true;
+      shineState.found = false;
+    }
+  }
+
+  // 내레이션이 끝났을 때 narrationComplete 상태 업데이트
+  if (trigger.triggered && !trigger.narrationComplete && !activeNarration && narrationQueue.length === 0) {
+    console.log('샤인 내레이션 완료 - 맵:', currentMap, {
+      triggered: trigger.triggered,
+      added: trigger.added,
+      narrationComplete: trigger.narrationComplete
+    });
+    trigger.narrationComplete = true;
+    
+    // 기억조각 추가 로직
+    if (!trigger.added) {
+      const fragments = currentChapter === 1 ? memoryFragments : chapter2Fragments;
+      const exists = fragments.some(fragment => fragment.place === trigger.place);
+      
+      if (!exists) {
+        console.log('Adding memory fragment for map:', currentMap, 'title:', trigger.title);
+        fragments.push({
+          title: trigger.title,
+          place: trigger.place,
+        });
+        trigger.added = true;
+        shineState.found = true;
+        
+        // 리스트 스크롤 위치 업데이트
+        listScrollY = Math.max(0, listContentHeight - height * 0.45);
+        
+        // 챕터별 기억조각 개수에 따라 리스트 버튼 흔들림 시작
+        if ((currentChapter === 1 && memoryFragments.length >= 4) || 
+            (currentChapter === 2 && chapter2Fragments.length >= 3)) {
+          listButtonShake.active = true;
+          listButtonShake.startTime = millis();
+        }
+      }
     }
   }
 
@@ -1079,6 +1154,7 @@ function handleShineInteraction() {
     if (shineState.phase === "collect" && shineState.collectStartTime) {
       const elapsed = millis() - shineState.collectStartTime;
       if (elapsed > 1000) {
+        console.log('Collect phase complete - starting fly phase for map:', currentMap);
         shineState.phase = "fly";
         shineState.flyStartX = shineX;
         shineState.flyStartY = shineY;
@@ -1100,9 +1176,10 @@ function handleShineInteraction() {
       shineState.scale = lerp(1, 0.5, p);
       shineState.alpha = lerp(255, 0, p);
       if (p >= 1) {
+        console.log('Fly phase complete - starting absorb phase for map:', currentMap);
         shineState.phase = "absorb";
         shineState.animStartTime = millis();
-        shineState.found = true;
+        shineState.found = true; // fly 단계가 완료된 후에만 found를 true로 설정
       }
     } else if (shineState.phase === "absorb") {
       const elapsed = millis() - shineState.animStartTime;
@@ -1111,6 +1188,7 @@ function handleShineInteraction() {
       shineState.scale = 0.5 + p * 1.5;
       shineState.alpha = 255 * (1 - p);
       if (p >= 1) {
+        console.log('Absorb phase complete - returning to idle for map:', currentMap);
         shineState.phase = "idle";
         shineState.animating = false;
       }
@@ -1173,6 +1251,9 @@ function drawMap() {
 }
 
 function drawListButton() {
+  // 현실 맵에서는 리스트 버튼을 그리지 않음
+  if (currentMap === "reality") return;
+
   const btnW = width * 0.08;
   const btnH = btnW * (listImg.height / listImg.width);
   const btnX = width - btnW - 32;
@@ -1476,13 +1557,16 @@ function mousePressed() {
   // 마지막 스테이지 버튼 클릭 처리
   if (
     lastStageButton.visible &&
+    !lastStageButton.permanentlyHidden &&
     mouseX > lastStageButton.x &&
     mouseX < lastStageButton.x + lastStageButton.w &&
     mouseY > lastStageButton.y &&
     mouseY < lastStageButton.y + lastStageButton.h
   ) {
     lastStageButton.visible = false;
+    lastStageButton.permanentlyHidden = true; // 버튼을 영구적으로 숨김
     showListModal = false;
+    listButtonShake.active = false;  // 리스트 버튼 흔들림 멈춤
     startMapTransition("reality", createVector(width/2, height/2));
     return;
   }
@@ -1501,15 +1585,63 @@ function mousePressed() {
 function keyPressed() {
   // 내레이션 스킵은 blockGirlMove와 관계없이 동작하도록 수정
   if (activeNarration && (keyCode === ENTER || key === " ")) {
-    activeNarration.active = false;
+    // 샤인 애니메이션 중이 아닐 때만 내레이션 스킵
+    const shine = shineTriggers?.[currentMap];
+    if (!shine || !shine.triggered || shine.added || shineState.phase === "idle") {
+      activeNarration.active = false;
+    }
     return;
   }
 
   // 샤인 이벤트의 나레이션 스킵도 blockGirlMove와 관계없이 동작
   const shine = shineTriggers?.[currentMap];
   if (shine && shine.triggered && !shine.added && narrationQueue.length > 0 && (keyCode === ENTER || key === " ")) {
-    narrationQueue = [];
-    activeNarration = null;
+    // 샤인 애니메이션이 fly나 absorb 단계일 때는 나레이션만 스킵
+    if (shineState.phase === "fly" || shineState.phase === "absorb") {
+      // 기억조각 저장 로직을 먼저 실행
+      if (!shine.added) {
+        const fragments = currentChapter === 1 ? memoryFragments : chapter2Fragments;
+        const exists = fragments.some(fragment => fragment.place === shine.place);
+        
+        if (!exists) {
+          console.log('내레이션 스킵으로 기억조각 추가:', shine.title);
+          fragments.push({
+            title: shine.title,
+            place: shine.place,
+          });
+          shine.added = true;
+          shineState.found = true;
+          
+          // 리스트 스크롤 위치 업데이트
+          listScrollY = Math.max(0, listContentHeight - height * 0.45);
+          
+          // 챕터별 기억조각 개수에 따라 리스트 버튼 흔들림 시작
+          if ((currentChapter === 1 && memoryFragments.length >= 4) || 
+              (currentChapter === 2 && chapter2Fragments.length >= 3)) {
+            listButtonShake.active = true;
+            listButtonShake.startTime = millis();
+          }
+        }
+      }
+
+      // 내레이션 상태 업데이트
+      narrationQueue = [];
+      activeNarration = null;
+      shine.narrationComplete = true;
+      console.log('내레이션 스킵으로 인한 상태 업데이트:', {
+        triggered: shine.triggered,
+        added: shine.added,
+        narrationComplete: shine.narrationComplete
+      });
+
+      // 현실 맵에서 내레이션 스킵 시 엔딩 시퀀스 시작
+      if (currentMap === "reality" && realityEntrySpoken && !showEndingText) {
+        console.log('현실 맵 내레이션 스킵으로 엔딩 시퀀스 시작');
+        showEndingText = true;
+        endingPhase = 1;
+        endingStartTime = millis();
+      }
+    }
     return;
   }
 
@@ -2155,6 +2287,32 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       break;
 
     case "reality":
+      // 현실 맵에서는 좌우 이동 제한을 마진으로만 설정
+      if (girl.pos.x < MARGIN) {
+        girl.pos.x = MARGIN;
+        if (!activeNarration && narrationQueue.length === 0) {
+          narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
+        }
+      }
+      if (girl.pos.x > width - MARGIN) {
+        girl.pos.x = width - MARGIN;
+        if (!activeNarration && narrationQueue.length === 0) {
+          narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
+        }
+      }
+      // 상하 이동 제한도 마진으로만 설정
+      if (girl.pos.y < MARGIN) {
+        girl.pos.y = MARGIN;
+        if (!activeNarration && narrationQueue.length === 0) {
+          narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
+        }
+      }
+      if (girl.pos.y > height - MARGIN) {
+        girl.pos.y = height - MARGIN;
+        if (!activeNarration && narrationQueue.length === 0) {
+          narrationQueue.push(new Narration("그쪽으로는 갈 수 없어."));
+        }
+      }
       statusText = "현실. 엄마의 흔적이 남아있는 집";
       if (!realityEntrySpoken) {
         queueNarrationChain([
@@ -2173,11 +2331,32 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
           !showEndingText && 
           shine && 
           shine.triggered && 
-          shine.added) {
+          shine.added ) {
+        console.log('엔딩 시퀀스 시작 조건 충족:', {
+          realityEntrySpoken,
+          activeNarration: !!activeNarration,
+          narrationQueueLength: narrationQueue.length,
+          showEndingText,
+          shineTriggered: shine.triggered,
+          shineAdded: shine.added,
+          shineNarrationComplete: shine.narrationComplete
+        });
         showEndingText = true;
-        showListModal = false; // 리스트 모달 닫기
+        showListModal = false;
+        lastStageButton.visible = false;
+        lastStageButton.permanentlyHidden = true; // 엔딩 시작 시 버튼을 영구적으로 숨김
         endingPhase = 1;
         endingStartTime = millis();
+      } else if (shine && !showEndingText) {
+        console.log('엔딩 시퀀스 시작 조건 미충족:', {
+          realityEntrySpoken,
+          activeNarration: !!activeNarration,
+          narrationQueueLength: narrationQueue.length,
+          showEndingText,
+          shineTriggered: shine.triggered,
+          shineAdded: shine.added,
+          shineNarrationComplete: shine.narrationComplete
+        });
       }
 
       // 바운더리 이동 제한 및 나레이션
@@ -2211,9 +2390,12 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
   // 맵 간 효과음 처리
   const sfxMapTransitions = [
     ["schoolEntrance", "schoolInterior"],
-    ["schoolInterior", "class1"],
     ["schoolInterior", "library"],
-    ["mansion", "mansionInterior"]
+    ["mansion", "mansionInterior"],
+    ["momsRoom", "mansionInterior"],  // 콤마 추가
+    ["mansion2", "inTheMansion2"],
+    ["inTheMansion2", "livingRoom"],
+    ["inTheMansion2", "momsRoom2"]
   ];
 
   for (const [from, to] of sfxMapTransitions) {
@@ -2223,6 +2405,7 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       playRoomOpenOnce(to);
   }
 
+  // 교실 출입은 미닫이문 소리로 처리
   if (
     (currentMap === "class1" && lastEnteredMap === "schoolInterior") ||
     (currentMap === "schoolInterior" && lastEnteredMap === "class1")
@@ -2275,6 +2458,7 @@ function queueNarrationChain(textArray) {
 
 function playRoomOpenOnce(mapName) {
   if (lastRoomOpenPlayedMap !== mapName) {
+    console.log("문 소리 재생:", mapName);
     roomOpenSound.play();
     lastRoomOpenPlayedMap = mapName;
   }
@@ -2282,8 +2466,7 @@ function playRoomOpenOnce(mapName) {
 
 function playSlideDoorOnce(mapName) {
   if (lastSlideDoorPlayedMap !== mapName) {
-    slideDoorSound.rate(1.5);
-    slideDoorSound.setVolume(1.7);
+    console.log("미닫이문 소리 재생:", mapName);
     slideDoorSound.play();
     lastSlideDoorPlayedMap = mapName;
   }
@@ -2298,20 +2481,50 @@ function startMapTransition(newMap, newPos) {
     nextMap = newMap;
     nextPos = newPos;
 
+    // 맵 전환 시 문 소리 재생
+    if (currentMap && newMap) {
+      // 일반 문 소리가 필요한 맵 전환
+      const roomDoorTransitions = [
+        ["schoolEntrance", "schoolInterior"],
+        ["schoolInterior", "library"],
+        ["mansion", "mansionInterior"],
+        ["momsRoom", "mansionInterior"],
+        ["mansion2", "inTheMansion2"],
+        ["inTheMansion2", "livingRoom"],
+        ["inTheMansion2", "momsRoom2"]
+      ];
+      
+      // 미닫이문 소리가 필요한 맵 전환
+      const slideDoorTransitions = [
+        ["class1", "schoolInterior"],
+        ["schoolInterior", "class1"]
+      ];
+
+      // 일반 문 소리 체크
+      for (const [from, to] of roomDoorTransitions) {
+        if ((currentMap === from && newMap === to) || (currentMap === to && newMap === from)) {
+          playRoomOpenOnce(currentMap);
+          break;
+        }
+      }
+
+      // 미닫이문 소리 체크
+      for (const [from, to] of slideDoorTransitions) {
+        if ((currentMap === from && newMap === to) || (currentMap === to && newMap === from)) {
+          playSlideDoorOnce(currentMap);
+          break;
+        }
+      }
+    }
+
     // 챕터2 진입 또는 현실 맵 진입 시 버튼 숨김
     if (newMap === "mansion2" || newMap === "reality") {
       nextStageButton.visible = false;
       lastStageButton.visible = false;
-      // 현실 맵으로 이동할 때 리스트 버튼 흔들림 멈춤과 리스트 모달 숨김
+      // 현실 맵으로 이동할 때 리스트 버튼 흔들림 멈춤
       if (newMap === "reality") {
         listButtonShake.active = false;
-        listModal.visible = false;
       }
-    }
-
-    // 현실 맵으로 이동할 때 캐릭터 위치 설정
-    if (newMap === "reality") {
-      nextPos = { x: 0.2, y: 0.7 };
     }
 
     // shine 상태 초기화 (found 상태는 유지)
@@ -2515,7 +2728,8 @@ let lastStageButton = {
   w: 0,
   h: 0,
   visible: false,
-  hover: false
+  hover: false,
+  permanentlyHidden: false // 버튼이 영구적으로 숨겨졌는지 여부
 };
 
 // p5.js 마우스 휠 스크롤 이벤트 함수 추가
@@ -2624,7 +2838,7 @@ function handleEndingSequence() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(32);
-    text("딸, 미안해. 엄마가 너무 바빴나봐.\n엄마 용서해줄 수 있을까?", width/2, height/2);
+    text('"딸, 엄마가 미안해.\n엄마 용서해줄 수 있을까?"', width/2, height/2);
   } else if (endingPhase === 4) {
     // 홈 버튼 표시
     if (goToHomeButton.visible) {
