@@ -208,71 +208,71 @@ let mapMinY = 0,
 // 각 장소별 shine 내레이션 체인 수정
 const shineNarrationChains = {
   schoolyard: [
-    { text: "한 명의 아이가 놀았던 흔적이네. 어? 모래성 옆에 글씨가 있어.", duration: 3000 },
-    { text: '"나는 나중에 내 아이가 꼭 매일 웃게 해줄 거야."', duration: 3000 },
-    { text: "글씨체가가 왠지 익숙해.", duration: 2000 },
+    { text: "한 명의 아이가 놀았던 흔적이네. 어? 모래성 옆에 글씨가 있어." },
+    { text: '"나는 나중에 내 아이가 꼭 매일 웃게 해줄 거야."' },
+    { text: "글씨체가가 왠지 익숙해." },
   ],
   class1: [
-    { text: "모든 과목에서 A+...? 이 아이, 엄청난 모범생이었다는 건 알겠다.", duration: 2500 },
-    { text: "장래희망은 화가라고 적혀있어.", duration: 2000 },
-    { text: "선생님 메모도 있어. '미래가 기대되는 재능과 노력을 가진 학생.'", duration: 3000 },
-    { text: "이 아이의 기억 조각을 찾는 거, 은근히 재미있네?", duration: 2500 },
+    { text: "모든 과목에서 A+...? 이 아이, 엄청난 모범생이었다는 건 알겠다." },
+    { text: "장래희망은 화가라고 적혀있어." },
+    { text: "선생님 메모도 있어. '미래가 기대되는 재능과 노력을 가진 학생.'" },
+    { text: "이 아이의 기억 조각을 찾는 거, 은근히 재미있네?" },
   ],
   library: [
-    { text: "책장이 묵직해... 이건 '가족 심리학'? 옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야.", duration: 2500 },
-    { text: "'동생 돌보기'... '집안의 평화를 위한 책'이라니.", duration: 3000 },
-    { text: "이걸... 13살짜리 아이가 읽은 거야? 뭔가 이상해.", duration: 2500 },
+    { text: "책장이 묵직해... 이건 '가족 심리학'? 옆에 도서 이용 내역도 있네. 아까 봤던 그 아이의 글씨야." },
+    { text: "'동생 돌보기'... '집안의 평화를 위한 책'이라니." },
+    { text: "이걸... 13살짜리 아이가 읽은 거야? 뭔가 이상해." },
   ],
   mansion: [
-    { text: "아이의 타임캡슐을 발견했어.", duration: 3000 },
-    { text: "기억 조각을 찾아야 하니까... 미안하지만 열어봐야겠다.", duration: 3200 },
-    { text: "나의 소망 리스트?", duration: 2500 },
-    { text: "가족들과 함께 외식하는 것,", duration: 2800 },
-    { text: "아빠와 함께하는 저녁식사", duration: 2800 },
-    { text: "단 한 장의 웃는 가족사진.", duration: 2500 },
-    { text: "그 소박한 소원이... 이루어지지 못한 채 여기 남아 있어.", duration: 3000 },
-    { text: "이 아이가 간절히 바라는 거, 다 지금 내가 누리고 있는 것들이네.", duration: 2800 },
+    { text: "아이의 타임캡슐을 발견했어." },
+    { text: "기억 조각을 찾아야 하니까... 미안하지만 열어봐야겠다." },
+    { text: "나의 소망 리스트?" },
+    { text: "가족들과 함께 외식하는 것," },
+    { text: "아빠와 함께하는 저녁식사" },
+    { text: "단 한 장의 웃는 가족사진." },
+    { text: "그 소박한 소원이... 이루어지지 못한 채 여기 남아 있어." },
+    { text: "이 아이가 간절히 바라는 거, 다 지금 내가 누리고 있는 것들이네." },
   ],
   momsRoom: [
-    { text: "바닥에 메모지들이 흩어져 있어.", duration: 2000 },
-    { text: '"내가 어른이 되면 동생을 꼭 지켜줄 거야."', duration: 3000 },
-    { text: '"우리 가족은 행복해질 수 있을까? 엄마 아빠가 다투지 않았으면 좋겠다..."', duration: 3000 },
-    { text: "초등학생의 글씨 같아. 서툴긴 한데 참 익숙한 글씨체네. 이 아이는 행복하지 않은가봐.", duration: 3900 },
-    { text: "우리 엄마는 항상 밥 챙겨주시는데...", duration: 2500 },
-    { text: "갑자기 엄마 밥이 먹고 싶어졌어.", duration: 2500 },
+    { text: "바닥에 메모지들이 흩어져 있어." },
+    { text: '"내가 어른이 되면 동생을 꼭 지켜줄 거야."' },
+    { text: '"우리 가족은 행복해질 수 있을까? 엄마 아빠가 다투지 않았으면 좋겠다..."' },
+    { text: "초등학생의 글씨 같아. 서툴긴 한데 참 익숙한 글씨체네. 이 아이는 행복하지 않은가봐." },
+    { text: "우리 엄마는 항상 밥 챙겨주시는데..." },
+    { text: "갑자기 엄마 밥이 먹고 싶어졌어." },
   ],
   inTheMansion2: [
-    { text: "여기 앨범이랑 종이가 있네.", duration: 2000 },
-    { text: "앨범 옆에 초음파 사진이 있어. 이 집에 살던 그 아이가, 커서 임신을 했나봐.", duration: 2500 },
-    { text: "그리고 손글씨로 써진 메모... 역시 이 손글씨, 너무 익숙해.", duration: 2000 },
-    { text: '"모든 걸 포기해도 괜찮아.\n너는 나보다 더 큰 사랑을 받기를."', duration: 4000 },
-    { text: "이건... 누구의 마음일까?", duration: 3000 }
+    { text: "여기 앨범이랑 종이가 있네." },
+    { text: "앨범 옆에 초음파 사진이 있어. 이 집에 살던 그 아이가, 커서 임신을 했나봐." },
+    { text: "그리고 손글씨로 써진 메모... 역시 이 손글씨, 너무 익숙해." },
+    { text: '"모든 걸 포기해도 괜찮아.\n너는 나보다 더 큰 사랑을 받기를."' },
+    { text: "이건... 누구의 마음일까?" }
   ],
   livingRoom: [
-    { text: "다양한 것들이 흩어져 있어.", duration: 2500 },
-    { text: "대학원 합격 통지서, 미술 공모전 준비물, 유학 브로셔...", duration: 3000 },
-    { text: "메모도 있어.", duration: 3000 },
-    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. 다른 것쯤은 이루지 못해도 괜찮아."', duration: 3000 },
-    { text: "누군가의 꿈과 현실이 뒤엉킨 공간...", duration: 3000 }
+    { text: "다양한 것들이 흩어져 있어." },
+    { text: "대학원 합격 통지서, 미술 공모전 준비물, 유학 브로셔..." },
+    { text: "메모도 있어." },
+    { text: '"내 꿈과 같은 이 아이를 지켜줄 거야. 다른 것쯤은 이루지 못해도 괜찮아."' },
+    { text: "누군가의 꿈과 현실이 뒤엉킨 공간..." }
   ],
   momsRoom2: [
-    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? 정말 예쁘다.", duration: 2000 },
-    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? 미술용품을 정리한 것 같네.', duration: 3000 },
-    { text: '"아이가 태어나면, 엄청난 사랑을 줄 거야"', duration: 3000 },
-    { text: '"생일에는 매번 편지와 함께 멋진 선물을 줘야지. 행복의 꽃말을 가진 메리골드도 줄 거야."', duration: 3000 },
-    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? 그건 우리 엄마가 항상 나에게 해주는 건데...", duration: 2500 },
+    { text: "벽에 걸려진 그림, 그 아이가 어른이 되어 그린 걸까? 정말 예쁘다." },
+    { text: '그런데, 화가가 되고싶다는 꿈은 포기한 걸까? 미술용품을 정리한 것 같네.' },
+    { text: '"아이가 태어나면, 엄청난 사랑을 줄 거야"' },
+    { text: '"생일에는 매번 편지와 함께 멋진 선물을 줘야지. 행복의 꽃말을 가진 메리골드도 줄 거야."' },
+    { text: "잠깐, 생일에 편지와 선물? 메리골드까지? 그건 우리 엄마가 항상 나에게 해주는 건데..." },
   ],
   reality: [
-    { text: "아건 우리 엄마 휴대폰인데, 켜져있네...", duration: 2000 },
-    { text: '"엄마는 진짜 인생 망친 사람 같아"', duration: 3000 },
-    { text: '"엄마는 내 기분도 모르잖아!"', duration: 3000 },
-    { text: "그 옆에는 젖은 흔적이 있는 일기장이...", duration: 2500 },
-    { text: "잠깐...", duration: 2000 },
-    { text: "어릴 적 동생을 돌본 소녀...", duration: 2500 },
-    { text: "꿈을 포기한 여성...", duration: 2500 },
-    { text: "눈물 흘린 엄마...", duration: 2500 },
-    { text: "이 모든 것이...", duration: 2000 },
-    { text: "같은 한 사람의 이야기였다는 것을 깨달았다.", duration: 3000 }
+    { text: "아건 우리 엄마 휴대폰인데, 켜져있네..." },
+    { text: '"엄마는 진짜 인생 망친 사람 같아"' },
+    { text: '"엄마는 내 기분도 모르잖아!"' },
+    { text: "그 옆에는 젖은 흔적이 있는 일기장이..." },
+    { text: "잠깐..." },
+    { text: "어릴 적 동생을 돌본 소녀..." },
+    { text: "꿈을 포기한 여성..." },
+    { text: "눈물 흘린 엄마..." },
+    { text: "이 모든 것이..." },
+    { text: "같은 한 사람의 이야기였다는 것을 깨달았다." }
   ]
 };
 
@@ -348,8 +348,8 @@ class Narration {
   }
 
   update() {
-    const elapsed = millis() - this.startTime;
-    if (elapsed > this.duration) {
+    // duration이 null이 아닐 때만 시간에 따라 자동으로 넘어가도록 함
+    if (this.duration !== null && millis() - this.startTime > this.duration) {
       this.active = false;
     }
   }
@@ -1571,8 +1571,7 @@ function handleAlleyIntro() {
   if (alleyIntroStep === 0) {
     narrationQueue.push(
       new Narration(
-        "으어... 여기가 어디지?\n맞다, 아까 엄마가 준 목걸이를 집어던졌지. ",
-        2000
+        "으어... 여기가 어디지?\n맞다, 아까 엄마가 준 목걸이를 집어던졌지. "
       )
     );
     alleyIntroStep++;
@@ -1583,8 +1582,7 @@ function handleAlleyIntro() {
   ) {
     narrationQueue.push(
       new Narration(
-        "왜 그 이후가 기억이 안나지?\n우선 휴대폰을 봐야겠다.",
-        2500
+        "왜 그 이후가 기억이 안나지?\n우선 휴대폰을 봐야겠다."
       )
     );
     alleyIntroStep++;
@@ -1605,8 +1603,7 @@ function handleAlleyIntro() {
   ) {
     narrationQueue.push(
       new Narration(
-        "휴대폰이 안돼... 날짜만 뜨네?\n1982년 3월 26일? 나 설마 과거로 온거야?",
-        3000
+        "휴대폰이 안돼... 날짜만 뜨네?\n1982년 3월 26일? 나 설마 과거로 온거야?"
       )
     );
     alleyIntroStep++;
@@ -1617,8 +1614,7 @@ function handleAlleyIntro() {
   ) {
     narrationQueue.push(
       new Narration(
-        "침착하자. 방법만 찾는다면 집으로 돌아갈 수 있을 거야.",
-        3000
+        "침착하자. 방법만 찾는다면 집으로 돌아갈 수 있을 거야."
       )
     );
     alleyIntroStep++;
@@ -1627,9 +1623,7 @@ function handleAlleyIntro() {
     !activeNarration &&
     narrationQueue.length === 0
   ) {
-    narrationQueue.push(
-      new Narration("엄마가 준 목걸이를 주웠을 때 여기로 왔잖아.", 3000)
-    );
+    narrationQueue.push(new Narration("엄마가 준 목걸이를 주웠을 때 여기로 왔잖아."));
     alleyIntroStep++;
   } else if (
     alleyIntroStep === 6 &&
@@ -1638,8 +1632,7 @@ function handleAlleyIntro() {
   ) {
     narrationQueue.push(
       new Narration(
-        "잠깐, 목걸이 뒷면에 뭐가 써져 있어. \n'아이의 기억 조각을 모으면 과거에서 현실로 돌아갈 수 있을 거야.'",
-        3800
+        "잠깐, 목걸이 뒷면에 뭐가 써져 있어. \n'아이의 기억 조각을 모으면 과거에서 현실로 돌아갈 수 있을 거야.'"
       )
     );
     alleyIntroStep++;
@@ -1648,9 +1641,7 @@ function handleAlleyIntro() {
     !activeNarration &&
     narrationQueue.length === 0
   ) {
-    narrationQueue.push(
-      new Narration("누군가의 기억을 찾아야 집에 돌아갈 수 있다는 뜻...?", 3000)
-    );
+    narrationQueue.push(new Narration("누군가의 기억을 찾아야 집에 돌아갈 수 있다는 뜻...?"));
     alleyIntroStep++;
   } else if (
     alleyIntroStep === 8 &&
@@ -1659,8 +1650,7 @@ function handleAlleyIntro() {
   ) {
     narrationQueue.push(
       new Narration(
-        "우선 이곳을 돌아다니며 기억 조각을 찾아보자.",
-        3000
+        "우선 이곳을 돌아다니며 기억 조각을 찾아보자."
       )
     );
     alleyIntroStep++;
@@ -1847,10 +1837,10 @@ function updateMapLogic() {
       if (!schoolEntranceEntrySpoken) {
         schoolEntranceEntrySpoken = true;
         queueNarrationChain([
-          { text: "와 여기 진짜 고풍스러운 학교다.", duration: 2000 },
-          { text: "국민학교라고 적혀있어. 응..? 국민학교?", duration: 3000 },
-          { text: "초등학교가 아니라 국민학교라고? 여기 진짜 과거구나!", duration: 3000 },
-          { text: "왼쪽으로 가면 운동장인가? 위로 가면 학교 내부?", duration: 3000 }
+          { text: "와 여기 진짜 고풍스러운 학교다." },
+          { text: "국민학교라고 적혀있어. 응..? 국민학교?" },
+          { text: "초등학교가 아니라 국민학교라고? 여기 진짜 과거구나!" },
+          { text: "왼쪽으로 가면 운동장인가? 위로 가면 학교 내부?" }
         ]);
       }
       if (girl.pos.x < marginX) {
@@ -1878,10 +1868,10 @@ function updateMapLogic() {
       if (!schoolInteriorEntrySpoken) {
         schoolInteriorEntrySpoken = true;
         queueNarrationChain([
-          { text: "안에도 참 고풍스럽네...", duration: 2000 },
-          { text: "우리 부모님이 다녔을 법해.", duration: 2000 },
-          { text: "하긴, 1980년대니까.", duration: 2500 },
-          { text: "둘러보며 정보를 좀 더 찾아봐야겠다. 오른쪽이 교실, 위쪽은 도서관인 거 같아.", duration: 2500 }
+          { text: "안에도 참 고풍스럽네..." },
+          { text: "우리 부모님이 다녔을 법해." },
+          { text: "하긴, 1980년대니까." },
+          { text: "둘러보며 정보를 좀 더 찾아봐야겠다. 오른쪽이 교실, 위쪽은 도서관인 거 같아." }
         ]);
       }
       if (girl.pos.y < marginY) {
@@ -1898,9 +1888,9 @@ function updateMapLogic() {
       if (!class1EntrySpoken) {
         class1EntrySpoken = true;
         queueNarrationChain([
-          { text: "와 여기 정말 귀엽다.", duration: 2000 },
-          { text: "한국 지도도 있고 칠판이 초록색이잖아!", duration: 2500 },
-          { text: "안에 좀 더 둘러볼까?", duration: 2000 }
+          { text: "와 여기 정말 귀엽다." },
+          { text: "한국 지도도 있고 칠판이 초록색이잖아!" },
+          { text: "안에 좀 더 둘러볼까?" }
         ]);
       }
       if (girl.pos.x < marginX) {
@@ -1920,8 +1910,8 @@ function updateMapLogic() {
       if (!libraryEntrySpoken) {
         libraryEntrySpoken = true;
         queueNarrationChain([
-          { text: "여기 도서관 냄새 되게 좋다.\n만화책방 냄새 나.", duration: 3000 },
-          { text: "어? 저기 빛나는게 보이네?\n저건 뭐지?", duration: 3000 }
+          { text: "여기 도서관 냄새 되게 좋다.\n만화책방 냄새 나." },
+          { text: "어? 저기 빛나는게 보이네?\n저건 뭐지?" }
         ]);
       }
       if (girl.pos.y > height - marginY) {
@@ -1971,8 +1961,8 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       if (!mansionEntrySpoken) {
         mansionEntrySpoken = true;
         queueNarrationChain([
-          { text: "아무도 안계세요?", duration: 2000 },
-          { text: "흠... 아무도 없나보네. 그나저나 참 정감가는 정원이다.", duration: 3000 }
+          { text: "아무도 안계세요?" },
+          { text: "흠... 아무도 없나보네. 그나저나 참 정감가는 정원이다." }
         ]);
       }
       if (girl.pos.x < marginX + 350) {
@@ -1991,9 +1981,9 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       if (!mansionInteriorEntrySpoken) {
         mansionInteriorEntrySpoken = true;
         queueNarrationChain([
-          { text: "이 집 열려있잖아? 지금 예의를 차릴 때가 아니야. 잠깐만 둘러보자.", duration: 3000 },
-          { text: "왜 이렇게 더럽지... 설마 폐가?! 아닌데... 흔적이 있긴 한데...", duration: 3500 },
-          { text: "왼쪽에 문이 보이네... 내가 찾는 그 아이의 방 같은데?", duration: 3000 },
+          { text: "이 집 열려있잖아? 지금 예의를 차릴 때가 아니야. 잠깐만 둘러보자." },
+          { text: "왜 이렇게 더럽지... 설마 폐가?! 아닌데... 흔적이 있긴 한데..." },
+          { text: "왼쪽에 문이 보이네... 내가 찾는 그 아이의 방 같은데?" }
         ]);
       }
       // 오른쪽 70% 초과 이동 제한
@@ -2021,7 +2011,7 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
     case "momsRoom":
       statusText = "아이의 방. 오른쪽: 저택 내부";
       if (!momsRoomEntrySpoken) {
-        narrationQueue.push(new Narration("여긴 그 아이의 방이야.\n방이 엄청 더럽네?", 3000));
+        narrationQueue.push(new Narration("여긴 그 아이의 방이야.\n방이 엄청 더럽네?"));
         momsRoomEntrySpoken = true;
       }
       // 오른쪽 바깥(저택 내부로 이동)
@@ -2057,8 +2047,8 @@ if (timeCapsuleEvent && !timeCapsuleEvent.triggered && inCapsuleZone) {
       if (!mansion2EntrySpoken) {
         mansion2EntrySpoken = true;
         queueNarrationChain([
-          { text: "기억 조각을 모으면 집에 보내준다며.. \n왜 또 이 집으로 돌아온 거야?", duration: 3000 },
-          { text: "기억 조각을 더 많이 모아야 하나?", duration: 4000 },
+          { text: "기억 조각을 모으면 집에 보내준다며.. \n왜 또 이 집으로 돌아온 거야?" },
+          { text: "기억 조각을 더 많이 모아야 하나?" },
           { text: "근데, 이 집 왜 변했지? 계절도 바뀐 것 같아.", duration: 2000 },
           { text: "설마 그새 또 다른 시대로 이동한 거 아니야?", duration: 4000 },
           { text: "휴대폰을 확인해보자!", duration: 2000 },
@@ -2265,7 +2255,7 @@ function queueNarrationChain(textArray) {
     narrationQueue.push(
       new Narration(
         textArray[i].text,
-        textArray[i].duration,
+        null,  // duration을 null로 설정
         true,
         textArray[i].type || "dialogue" // type이 지정되지 않은 경우 기본값은 "dialogue"
       )
